@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+    django:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-django
+        volumes:
+            - "./projement:/app"
+        depends_on:
+            - postgres
+        ports:
+            - "8000:80"
+
+    node:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node
+        volumes:
+            - ".data/node_modules:/app/node_modules"
+            - "./projement:/app"
+
+    postgres:
+        image: postgres:14.3-alpine
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - PGDATA=/var/lib/postgresql/data
+        volumes:
+            - ./postgres-data/:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
