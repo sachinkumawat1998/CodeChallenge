@@ -42,21 +42,24 @@ FormField.propTypes = {
 const EditProjectForm = ({ project, onSubmit }) => (
     <Formik
         initialValues={{
-            actual_design: project.actual_design,
-            actual_development: project.actual_development,
-            actual_testing: project.actual_testing,
+            actual_design: 0,
+            actual_development: 0,
+            actual_testing: 0,
         }}
         validationSchema={Yup.object().shape({
             actual_design: Yup.number()
                 .min(0)
+                .max(9999)
                 .required()
                 .label('Actual design hours'),
             actual_development: Yup.number()
                 .min(0)
+                .max(9999)
                 .required()
                 .label('Actual development hours'),
             actual_testing: Yup.number()
                 .min(0)
+                .max(9999)
                 .required()
                 .label('Actual testing hours'),
         })}

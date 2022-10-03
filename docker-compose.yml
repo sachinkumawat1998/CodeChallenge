@@ -1,7 +1,9 @@
 version: '2'
 
 services:
-    django:
+    django: 
+        stdin_open: true
+        tty: true
         build:
             context: .
             dockerfile: docker/Dockerfile-django

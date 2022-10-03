@@ -35,7 +35,6 @@ const DashboardPage = ({ fetchProjects, projects, isLoading }) => {
     } catch (errors) {}
   };
   const privious = () => {
-    debugger
       apiCall( limit,offset - limit);
       SetOffset(offset - limit, limit);
   };

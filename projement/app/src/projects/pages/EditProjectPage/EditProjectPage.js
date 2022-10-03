@@ -39,7 +39,7 @@ const EditProjectPage = ({ projects, fetchProjects, updateProject }) => {
                                 ([field, error]) => {
                                     formikHelpers.setFieldError(
                                         field,
-                                        error[0],
+                                        error,
                                     );
                                 },
                             );

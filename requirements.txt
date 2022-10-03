@@ -11,6 +11,6 @@ pytest==5.3.0
 pytest-django==3.7.0
 coverage==4.5.4
 black==19.10b0
-# django-debug-toolbar
+django-debug-toolbar
 Faker==2.0.4
 dj-database-url

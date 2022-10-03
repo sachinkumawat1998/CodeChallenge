@@ -3,6 +3,8 @@ from django.core.validators import MinValueValidator
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
+from django.db.models import F
+
 
 
 class Tag(models.Model):
@@ -83,6 +85,9 @@ class Project(models.Model):
         return reverse(
             "project-update", kwargs={"pk": self.pk, "slug": slugify(self.title)}
         )
+
+    class Meta:
+        ordering = [F('end_date').desc(nulls_first=True), "company__name"]
 
     @property
     def has_ended(self):
